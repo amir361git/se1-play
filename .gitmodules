@@ -4,3 +4,6 @@
 [submodule ".vscode"]
 	path = .vscode
 	url = https://github.com/sgra64/gitmodule-vscode-java.git
+[submodule "libs"]
+	path = libs
+	url = https://github.com/sgra64/gitmodule-libs
