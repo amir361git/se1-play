@@ -4,9 +4,10 @@
  *
  * @version <code style=color:green>{@value application.package_info#Version}</code>
  * @author <code style=color:blue>{@value application.package_info#Author}</code>
+ *
+ * (Author: amiramir)
  */
 package application;
-
 
 /**
  * Class {@code package_info} of the {@link application} package provides global
@@ -16,14 +17,6 @@ package application;
  * in Java 9 (2017) to provide package-level documentation.
  */
 class package_info {
-
-    /**
-     * Author attribute to appear in javadoc.
-     */
-    static final String Author = "amiramir";   // 👈 dein Name
-
-    /**
-     * Version attribute to appear in javadoc.
-     */
+    static final String Author = "amiramir";
     static final String Version = "1.0.0-SNAPSHOT";
 }
