@@ -98,8 +98,7 @@ public interface Numbers {
      * @return instance of the {@link Numbers} interface
      */
     static Numbers getInstance() {
-        throw new UnsupportedOperationException("Unimplemented method 'getInstance()' "
-            + "in interface 'Numbers'. Create an implementation class and return.");
+        return NumbersImpl.getInstance();
     }
 
     /**
