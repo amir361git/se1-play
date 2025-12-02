@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import application.Runner;
+import numbers.Numbers;
 
 /**
  * Public interface with functions for the <i>"b2-streams"</i> assignment.
@@ -154,9 +155,8 @@ public interface Streams {
      * @return instance of the {@link Streams} interface
      */
     static Streams getInstance() {
-        throw new UnsupportedOperationException("Unimplemented method 'getInstance()' "
-            + "in interface 'Streams'. Create an implementation class and return.");
-    }
+        return StreamsImpl.getInstance();
+}
 
     /**
      * Factory method that creates an instance of the {@link Runner} interface.
