@@ -19,6 +19,10 @@ class NumbersImpl implements Numbers {
     // Aufgabe 1
     @Override
     public long sum(int[] numbers) {
+        if (numbers == null) {
+            throw new IllegalArgumentException("illegal argument: null");
+        }
+
         long result = 0;
         for (int n : numbers) {
             result += n;

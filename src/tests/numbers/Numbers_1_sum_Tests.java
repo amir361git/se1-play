@@ -3,6 +3,7 @@ package numbers;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 /**
  * Test class of an instance that implements the {@link Numbers} interface.
  * Method under test: {@code long sum(int[] numbers)}.
@@ -10,20 +11,32 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Numbers_1_sum_Tests {
 
+    /*
+     * tested object, instance that implements the {@link Numbers} interface
+     */
     private final Numbers testObj;
+
+    /*
+     * test data used in tests
+     */
     private final NumbersData testData;
 
+    /**
+     * Constructor that initializes test instances.
+     */
     Numbers_1_sum_Tests() {
         this.testObj = Numbers.getInstance();
         this.testData = new NumbersData();
     }
 
-    // -------- Regular cases --------
+    /**
+     * Tests for 'regular' cases.
+     */
     @Test @Order(100)
     void test100_sum_regular() {
         int[] testData_ = testData.getArr("numb");
-        long expected = 30L;
-        long actual = testObj.sum(testData_);
+        long expected = 30L;    // expected result of test
+        long actual = testObj.sum(testData_);   // invoke sum()
         assertEquals(expected, actual);
     }
 
@@ -42,9 +55,11 @@ public class Numbers_1_sum_Tests {
         assertEquals(141466L, testObj.sum(testData.getArr("numb_3")));
     }
 
-    // -------- Corner cases --------
-    @Test @Order(200)
-    void test200_sum_corner_empty_array() {
+    /**
+     * Tests for 'corner' cases.
+     */
+    @Test @Order(110)
+    void test110_sum_corner_empty_array() {
         int[] testData = {};        // empty array
         assertEquals(0L, testObj.sum(testData));
 
@@ -56,29 +71,39 @@ public class Numbers_1_sum_Tests {
         assertEquals(1L, testObj.sum(testData));
     }
 
-    @Test @Order(210)
-    void test210_sum_corner_big_array() {
-        int big = 1_000_000;
+    @Test @Order(120)
+    void test120_sum_corner_big_array() {
+        int big = 1_000_000;       // reduziert von 1.000.000.000
         int[] testData = new int[big];
-        for (int i = 0; i < big; i++) testData[i] = 1;
+        for (int i = 0; i < big; i++) {
+            testData[i] = 1;
+        }
         long expected = big;
         long actual = testObj.sum(testData);
         assertEquals(expected, actual);
     }
 
-    @Test @Order(212)
-    void test212_sum_corner_big_array_number_series() {
-        int big = 1_000_000;
+    @Test @Order(122)
+    void test122_sum_corner_big_array_number_series() {
+        int big = 1_000_000;       // ebenfalls reduzieren!
         int[] testData = new int[big];
-        for (int i = 0; i < big; i++) testData[i] = i;
+        for (int i = 0; i < big; i++) {
+            testData[i] = i;
+        }
         long expected = (long) big * (big - 1) / 2;
         long actual = testObj.sum(testData);
         assertEquals(expected, actual);
     }
 
-    // -------- Exception case --------
-    @Test @Order(300)
-    void test300_sum_exception_null_arg() {
-        assertThrows(NullPointerException.class, () -> testObj.sum(null));
+    /**
+     * Tests for 'exception' cases.
+     */
+    @Test @Order(130)
+    void test130_sum_exception_null_arg() {
+        IllegalArgumentException ex =
+            assertThrows(IllegalArgumentException.class,
+                () -> testObj.sum(null));
+
+        assertEquals("illegal argument: null", ex.getMessage());
     }
 }
