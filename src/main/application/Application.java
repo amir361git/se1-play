@@ -1,6 +1,6 @@
 package application;
 
-import numbers.Numbers;
+import streams.Streams;
 
 /**
  * Application class with a {@code main()} - function that parses command line
@@ -24,8 +24,8 @@ public class Application {
         //     .map(arg -> String.format(" - arg: %s", arg))
         //     .forEach(System.out::println);
         // 
-        Numbers numbers = Numbers.getInstance();
-        Runner runner = Numbers.createRunner(numbers);
+        Streams streams = Streams.getInstance();
+        Runner runner = Streams.createRunner(streams);
         runner.run(args);
     }
 }
