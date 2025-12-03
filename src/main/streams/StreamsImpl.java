@@ -18,8 +18,8 @@ public class StreamsImpl implements Streams {
     @Override
     public Stream<Integer> tenRandomNumbers() {
         Random random = new Random();
-        return random.ints(10, 0, 1000).boxed();
-    }
+        return random.ints(10, 0, 100).boxed();
+}
 
     @Override
     public Stream<Integer> tenEvenRandomNumbers() {
